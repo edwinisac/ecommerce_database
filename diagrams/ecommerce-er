@@ -1,0 +1,52 @@
+                 ┌──────────────┐
+                 │   CUSTOMER   │
+                 ├──────────────┤
+                 │ PK CustomerID│
+                 │ CustomerName │
+                 │ Email        │
+                 │ Phone        │
+                 └──────┬───────┘
+                        │
+              ┌─────────┴─────────┐
+              │                   │
+              ▼                   ▼
+       ┌────────────┐       ┌────────────┐
+       │  ADDRESS   │       │   ORDERS   │
+       ├────────────┤       ├────────────┤
+       │PK AddressID│       │PK OrderID  │
+       │FK CustomerID       │FK CustomerID
+       │City        │       │OrderDate   │
+       │State       │       │TotalAmount │
+       └────────────┘       └──────┬─────┘
+                                   │
+                                   ▼
+                           ┌──────────────┐
+                           │  ORDER_ITEM  │
+                           ├──────────────┤
+                           │PK OrderItemID│
+                           │FK OrderID    │
+                           │FK ProductID  │
+                           │Quantity      │
+                           │UnitPrice     │
+                           └──────┬───────┘
+                                  │
+                                  ▼
+                           ┌────────────┐
+                           │  PRODUCT   │
+                           ├────────────┤
+                           │PK ProductID│
+                           │FK CategoryID
+                           │ProductName │
+                           │Price       │
+                           │Stock       │
+                           └──────┬─────┘
+                                  │
+                                  ▼
+                           ┌────────────┐
+                           │  CATEGORY  │
+                           ├────────────┤
+                           │PK CategoryID
+                           │CategoryName│
+                           └────────────┘
+
+                 ORDERS ─────── PAYMENT
